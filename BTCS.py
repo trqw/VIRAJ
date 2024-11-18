@@ -158,3 +158,36 @@ plt.xticks(fontsize=12)
 plt.yticks(fontsize=10)
 plt.tight_layout()
 plt.show()
+
+
+
+
+#box plot
+plt.figure(figsize=(8, 6))
+sns.set_theme(style="whitegrid")
+sns.boxplot(x=match_data['win_by_runs'], palette="coolwarm")
+plt.title('Box Plot of Winning Margins by Runs', fontsize=16, fontweight='bold')
+plt.xlabel('Winning Margin (Runs)', fontsize=14)
+plt.tight_layout()
+plt.show()
+
+#histogram
+plt.figure(figsize=(8, 6))
+sns.set_theme(style="whitegrid")
+plt.hist(match_data['win_by_wickets'].dropna(), bins=10, color='skyblue', edgecolor='black')
+plt.title('Histogram of Winning Margins by Wickets', fontsize=16, fontweight='bold')
+plt.xlabel('Winning Margin (Wickets)', fontsize=14)
+plt.ylabel('Frequency', fontsize=14)
+plt.tight_layout()
+plt.show()
+
+
+#scatterplot
+plt.figure(figsize=(8, 6))
+sns.set_theme(style="whitegrid")
+sns.scatterplot(x=match_data['win_by_runs'], y=match_data['win_by_wickets'], color="blue", alpha=0.7)
+plt.title('Scatter Plot of Winning Margins', fontsize=16, fontweight='bold')
+plt.xlabel('Winning Margin (Runs)', fontsize=14)
+plt.ylabel('Winning Margin (Wickets)', fontsize=14)
+plt.tight_layout()
+plt.show()
