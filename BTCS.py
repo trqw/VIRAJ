@@ -184,12 +184,23 @@ plt.tight_layout()
 plt.show()
 
 
-#scatterplot
-plt.figure(figsize=(8, 6))
+#Scatter Plot
+plt.figure(figsize=(10, 6))
 sns.set_theme(style="whitegrid")
-sns.scatterplot(x=match_data['win_by_runs'], y=match_data['win_by_wickets'], color="blue", alpha=0.7)
-plt.title('Scatter Plot of Winning Margins', fontsize=16, fontweight='bold')
+sns.scatterplot(
+    x=match_data['win_by_runs'], 
+    y=match_data['win_by_wickets'], 
+    size=match_data['season'],  
+    hue=match_data['season'],  
+    palette="viridis", 
+    alpha=0.8, 
+    edgecolor="black", 
+    linewidth=0.5
+)
+plt.title('Scatter Plot of Winning Margins: Runs vs Wickets', fontsize=16, fontweight='bold')
 plt.xlabel('Winning Margin (Runs)', fontsize=14)
 plt.ylabel('Winning Margin (Wickets)', fontsize=14)
+plt.grid(visible=True, linestyle='--', alpha=0.6)
+plt.legend(title='Season', loc='upper right', bbox_to_anchor=(1.15, 1))
 plt.tight_layout()
 plt.show()
